@@ -1,9 +1,7 @@
-﻿"use strict"
-var akFileUploaderModule;
-(function () {
-    akFileUploaderModule = angular.module("akFileUploader", []);
-
-    akFileUploaderModule.factory("akFileUploaderService", ["$q", "$http",
+﻿(function () {
+    "use strict"
+    angular.module("akFileUploader", [])
+        .factory("akFileUploaderService", ["$q", "$http",
                function ($q, $http) {
                    var getModelAsFormData = function (data) {
                        var dataAsFormData = new FormData();
@@ -33,9 +31,8 @@ var akFileUploaderModule;
                        saveModel: saveModel
                    }
 
-               }]);
-
-    akFileUploaderModule.directive("akFileModel", ["$parse",
+               }])
+        .directive("akFileModel", ["$parse",
                 function ($parse) {
                     return {
                         restrict: "A",
@@ -50,4 +47,4 @@ var akFileUploaderModule;
                         }
                     };
                 }]);
-})();
+})(window,document);
